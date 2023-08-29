@@ -1,9 +1,9 @@
-package com.xiaoxin.datinghubback.exception;
+package com.xiaoxin.Country.exception;
 
 import cn.dev33.satoken.exception.NotPermissionException;
 import cn.dev33.satoken.exception.SaTokenException;
 import cn.hutool.core.util.StrUtil;
-import com.xiaoxin.datinghubback.common.Result;
+import com.xiaoxin.Country.common.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.web.bind.MethodArgumentNotValidException;

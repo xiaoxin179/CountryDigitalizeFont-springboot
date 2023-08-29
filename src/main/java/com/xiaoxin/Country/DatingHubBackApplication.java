@@ -1,15 +1,14 @@
-package com.xiaoxin.datinghubback;
+package com.xiaoxin.Country;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.xiaoxin.datinghubback.mapper")
+@MapperScan("com.xiaoxin.Country.mapper")
 public class DatingHubBackApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DatingHubBackApplication.class, args);
     }
-
 }

@@ -1,11 +1,17 @@
-package com.xiaoxin.datinghubback.entity;
+package com.xiaoxin.Country.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import cn.hutool.core.annotation.Alias;
+import com.xiaoxin.Country.common.LDTConfig;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -75,5 +81,21 @@ private static final long serialVersionUID = 1L;
     // 用户是否被删除，0为删除，1为存在
     @ApiModelProperty("用户是否被删除，0为删除，1为存在")
     @Alias("用户是否被删除，0为删除，1为存在")
-    private String isDelete;
+    private Integer isDelete;
+
+    // 用户创建时间
+    @ApiModelProperty("用户创建时间")
+    @Alias("用户创建时间")
+    @TableField(fill = FieldFill.INSERT)
+    @JsonDeserialize(using = LDTConfig.CmzLdtDeSerializer.class)
+    @JsonSerialize(using = LDTConfig.CmzLdtSerializer.class)
+    private LocalDateTime createTime;
+
+    // 用户更新时间
+    @ApiModelProperty("用户更新时间")
+    @Alias("用户更新时间")
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    @JsonDeserialize(using = LDTConfig.CmzLdtDeSerializer.class)
+    @JsonSerialize(using = LDTConfig.CmzLdtSerializer.class)
+    private LocalDateTime updateTime;
 }

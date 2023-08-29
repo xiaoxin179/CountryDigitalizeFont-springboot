@@ -1,6 +1,6 @@
-package com.xiaoxin.datinghubback.mapper;
+package com.xiaoxin.Country.mapper;
 
-import com.xiaoxin.datinghubback.entity.User;
+import com.xiaoxin.Country.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

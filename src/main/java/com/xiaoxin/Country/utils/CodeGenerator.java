@@ -1,7 +1,6 @@
-package com.xiaoxin.datinghubback.utils;
+package com.xiaoxin.Country.utils;
 
 import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.resource.ResourceUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.db.Db;
@@ -33,7 +32,7 @@ public class CodeGenerator {
     private static final String TABLE = "user";  // 表名
     private static final String MODULE_NAME = "动态";  // 菜单名称
 
-    private static final String PACKAGE_NAME = "com.xiaoxin.datinghubback";  // java代码的包名
+    private static final String PACKAGE_NAME = "com.xiaoxin.Country";  // java代码的包名
     private static final String AUTHOR = "xiaoxin";   // 作者
 
     //

@@ -1,6 +1,6 @@
-package com.xiaoxin.datinghubback.service;
+package com.xiaoxin.Country.service;
 
-import com.xiaoxin.datinghubback.entity.User;
+import com.xiaoxin.Country.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -13,4 +13,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IUserService extends IService<User> {
 
+    User login(User user);
+
+    Boolean register(User user);
 }

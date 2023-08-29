@@ -1,9 +1,6 @@
-package com.xiaoxin.datinghubback.common;
+package com.xiaoxin.Country.common;
 
-import cn.dev33.satoken.interceptor.SaInterceptor;
-import cn.dev33.satoken.stp.StpUtil;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;

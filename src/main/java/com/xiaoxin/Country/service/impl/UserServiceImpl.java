@@ -59,8 +59,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         }
     }
     public String generateUniqueUid() {
-        // 生成UUID并将其转换为16位字符串
-        String uuid = UUID.randomUUID().toString().replace("-", "").substring(0, 16);
+        // 生成UUID并将其转换为32位字符串
+        String uuid = UUID.randomUUID().toString().replace("-", "").substring(0, 32);
         return uuid;
     }
 }

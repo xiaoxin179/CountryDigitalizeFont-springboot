@@ -98,4 +98,9 @@ private static final long serialVersionUID = 1L;
     @JsonDeserialize(using = LDTConfig.CmzLdtDeSerializer.class)
     @JsonSerialize(using = LDTConfig.CmzLdtSerializer.class)
     private LocalDateTime updateTime;
+
+    //用户头像
+    @ApiModelProperty("用户头像")
+    @Alias("用户头像")
+    private String avatar;
 }

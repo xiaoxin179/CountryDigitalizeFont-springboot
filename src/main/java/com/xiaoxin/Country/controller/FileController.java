@@ -8,19 +8,18 @@ import com.xiaoxin.Country.common.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.nio.channels.MulticastChannel;
 
 /**
  * @author:XIAOXIN
- * @date:2023/08/31
- * 文件处理接口
+ * @date:2023/08/31 文件处理接口
  **/
 @RestController
 @RequestMapping("/file")
@@ -61,7 +60,27 @@ public class FileController {
             parentFile.mkdirs();
         }
         file.transferTo(updateFile);
-
         return Result.success("http://" + downloadIp + ":" + serverPort + "/file/" + fileFullName);
     }
+
+    @GetMapping("/{fileFullName}")
+    public void downloadFile(@PathVariable String fileFullName, HttpServletResponse response) throws IOException {
+        String fullUploadPath = getFillUploadPath(fileFullName);
+        byte[] bytes = FileUtil.readBytes(fullUploadPath);
+        ServletOutputStream os = response.getOutputStream();
+        os.write(bytes);
+        os.flush();
+        os.close();
+    }
+    /*
+     *获取完整路径的函数
+     */
+
+    private String getFillUploadPath(String fileFullName) {
+        if (StrUtil.isBlank(uploadPath)) {
+            uploadPath = System.getProperty("user.dir");
+        }
+        return uploadPath + FILE_DIR + fileFullName;
+    }
+
 }

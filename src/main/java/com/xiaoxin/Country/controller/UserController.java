@@ -1,6 +1,7 @@
 package com.xiaoxin.Country.controller;
 
 import cn.dev33.satoken.annotation.SaCheckPermission;
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.poi.excel.ExcelUtil;
 import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.ExcelWriter;
@@ -74,14 +75,16 @@ public class UserController {
     public Result findOne(@PathVariable Integer id) {
         return Result.success(userService.getById(id));
     }
-
+//搜索也是调用这个接口
     @GetMapping("/page")
     @SaCheckPermission("user.list")
-    public Result findPage(@RequestParam(defaultValue = "") String name,
+    public Result findPage(@RequestParam(defaultValue = "") String name,@RequestParam(defaultValue = "") String address,
                            @RequestParam Integer pageNum,
                            @RequestParam Integer pageSize) {
         QueryWrapper<User> queryWrapper = new QueryWrapper<User>().orderByDesc("id");
-        queryWrapper.like(!"".equals(name), "name", name);
+//        第一个是查询生效的条件,只有不为空的时候才回去拼接name和address
+        queryWrapper.like(!StrUtil.isBlank(name), "name", name);
+        queryWrapper.like(!StrUtil.isBlank(address), "address", address);
         return Result.success(userService.page(new Page<>(pageNum, pageSize), queryWrapper));
     }
 

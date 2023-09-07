@@ -1,7 +1,9 @@
 package com.xiaoxin.Country.controller;
 
 import com.xiaoxin.Country.common.Result;
+import com.xiaoxin.Country.entity.Admin;
 import com.xiaoxin.Country.entity.User;
+import com.xiaoxin.Country.service.IAdminService;
 import com.xiaoxin.Country.service.IUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -15,6 +17,8 @@ import javax.annotation.Resource;
 public class WebController {
     @Resource
     IUserService userService;
+    @Resource
+    IAdminService adminService;
     @GetMapping(value = "/")
     @ApiOperation(value = "版本校验接口")
     public String version() {
@@ -39,5 +43,14 @@ public class WebController {
     public Result register(@RequestBody User user) {
         Boolean res = userService.register(user);
         return Result.success();
+    }
+    /*
+    *管理员登录接口
+     */
+    @PostMapping("/adminLogin")
+    @ApiOperation(value = "用户登录接口")
+    public Result adminLogin(@RequestBody Admin admin) {
+        Admin  res =adminService.adminLogin(admin);
+        return Result.success(res);
     }
 }

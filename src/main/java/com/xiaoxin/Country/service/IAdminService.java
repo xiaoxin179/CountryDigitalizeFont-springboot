@@ -1,7 +1,6 @@
 package com.xiaoxin.Country.service;
 
 import com.xiaoxin.Country.entity.Admin;
-import com.xiaoxin.Country.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -10,12 +9,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author xiaoxin
- * @since 2023-08-29
+ * @since 2023-09-07
  */
-public interface IUserService extends IService<User> {
+public interface IAdminService extends IService<Admin> {
 
-    User login(User user);
-
-    Boolean register(User user);
-
+    Admin adminLogin(Admin admin);
 }

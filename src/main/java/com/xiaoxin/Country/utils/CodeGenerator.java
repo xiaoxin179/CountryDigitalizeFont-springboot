@@ -29,7 +29,7 @@ import java.util.*;
 @Slf4j
 public class CodeGenerator {
 
-    private static final String TABLE = "user";  // 表名
+    private static final String TABLE = "admin";  // 表名
     private static final String MODULE_NAME = "动态";  // 菜单名称
 
     private static final String PACKAGE_NAME = "com.xiaoxin.Country";  // java代码的包名

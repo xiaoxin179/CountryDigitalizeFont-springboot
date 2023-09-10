@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author xiaoxin
- * @since 2023-09-07
+ * @since 2023-09-08
  */
 @Service
 public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements IAdminService {
@@ -24,12 +24,13 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     public Admin adminLogin(Admin admin) {
         Admin dbAdmin;
         try {
-            dbAdmin = getOne(new QueryWrapper<Admin>().eq("username", admin.getUsername()));
+            dbAdmin=getOne(new QueryWrapper<Admin>().eq("username", admin.getUsername()));
+
         } catch (Exception e) {
-            throw new ServiceException("系统错误");
+            throw new RuntimeException("数据库异常");
         }
-        if (dbAdmin == null) {
-            throw new ServiceException("这个管理员不存在");
+        if(dbAdmin == null){
+            throw new ServiceException("该管理员未注册");
         }
         if (!dbAdmin.getPassword().equals(admin.getPassword())) {
             throw new ServiceException("账号或者密码错误");

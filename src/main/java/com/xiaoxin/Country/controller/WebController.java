@@ -48,7 +48,7 @@ public class WebController {
     *管理员登录接口
      */
     @PostMapping("/adminLogin")
-    @ApiOperation(value = "用户登录接口")
+    @ApiOperation(value = "管理员登录接口")
     public Result adminLogin(@RequestBody Admin admin) {
         Admin  res =adminService.adminLogin(admin);
         return Result.success(res);

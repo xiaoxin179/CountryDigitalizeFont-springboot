@@ -17,7 +17,7 @@ import lombok.Setter;
 * </p>
 *
 * @author xiaoxin
-* @since 2023-09-07
+* @since 2023-09-08
 */
 @Getter
 @Setter
@@ -38,4 +38,14 @@ private static final long serialVersionUID = 1L;
     @ApiModelProperty("管理员密码")
     @Alias("管理员密码")
     private String password;
+
+    // 管理员头像
+    @ApiModelProperty("管理员头像")
+    @Alias("管理员头像")
+    private String avatar;
+
+    // 管理员身份证号
+    @ApiModelProperty("管理员身份证号")
+    @Alias("管理员身份证号")
+    private String idcard;
 }

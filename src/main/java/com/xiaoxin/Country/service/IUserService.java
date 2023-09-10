@@ -18,4 +18,8 @@ public interface IUserService extends IService<User> {
 
     Boolean register(User user);
 
+
+    User toggleAccountFreeze(User user);
+
+    boolean updatePassword(User user);
 }

@@ -103,4 +103,12 @@ private static final long serialVersionUID = 1L;
     @ApiModelProperty("用户头像")
     @Alias("用户头像")
     private String avatar;
+
+//    用户身份证
+    @ApiModelProperty("用户身份证")
+    @Alias("用户身份证")
+    private String idcard;
+
+
+
 }

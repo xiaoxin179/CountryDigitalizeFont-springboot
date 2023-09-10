@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletOutputStream;
 import java.net.URLEncoder;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.apache.ibatis.javassist.NotFoundException;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.io.InputStream;
@@ -130,5 +131,17 @@ public class UserController {
         userService.saveBatch(list);
         return Result.success();
     }
+//    冻结用户
+    @PostMapping("/toggleFreeze")
+    public Result toggleAccountFreeze(@RequestBody User user) {
+    User updatedUser = userService.toggleAccountFreeze(user);
+    return Result.success(updatedUser);
 
+}
+//用户重置密码
+    @PostMapping("/updatePwd")
+    public Result updatePassword(@RequestBody User user) {
+        boolean res = userService.updatePassword(user);
+        return Result.success(res);
+    }
 }

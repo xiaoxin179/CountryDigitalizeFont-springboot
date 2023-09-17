@@ -109,6 +109,8 @@ private static final long serialVersionUID = 1L;
     @Alias("用户身份证")
     private String idcard;
 
-
+    @ApiModelProperty("用户个性签名")
+    @Alias("用户个性签名")
+    private String sign;
 
 }
